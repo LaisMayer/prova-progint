@@ -10,6 +10,7 @@
 <body>
     <div class="container">
         <img src="ifprlogo.png" alt="Logo" class="logo">
+
         <h1>Cadastro de Alunos</h1>
 
         <form id="cep-form" autocomplete="off">
@@ -25,8 +26,8 @@
             <label for="logradouro">Logradouro</label>
             <input type="text" id="logradouro" required>
 
-            <label for="complemento">Complemento</label>
-            <input type="text" id="complemento">
+            <label for="numero">número</label>
+            <input type="text" id="numero" maxlength="10" required>
 
             <label for="bairro">Bairro</label>
             <input type="text" id="bairro" required>
@@ -37,17 +38,19 @@
             <label for="uf">UF</label>
             <input type="text" id="uf" maxlength="2" required>
 
-            <label for="numero">número</label>
-            <input type="text" id="numero" maxlength="10" required>
-
-
             <button type="submit">Enviar</button>
+
+
+            <input name="busca" type="text" id="busca" value="" size="10" maxlength="100"
+            onblur="buscarUsuario(this.value);" /></label><br />
+            <button type="button" id="btn-buscar">buscar Usuario</button>
             <button type="button" id="btn-listar">Listar Endereços</button>
 
         </form>
 
         <div id="erro" class="hidden"></div>
         <div id="lista-enderecos" class="hidden"></div>
+        <div id="lista-usuario" class="hidden"></div>
     </div>
 
     <script src="script.js"></script>

@@ -31,6 +31,7 @@ function buscarEndereco(cep) {
     });
 }
 
+
 function mostrarErro(msg) {
   erro.textContent = msg;
   erro.classList.remove('hidden');
@@ -40,6 +41,7 @@ function mostrarErro(msg) {
   document.getElementById('bairro').value = '';
   document.getElementById('localidade').value = '';
   document.getElementById('uf').value = '';
+  
 }
 
 function salvarNoLocalStorage(data) {
@@ -49,7 +51,8 @@ function salvarNoLocalStorage(data) {
     logradouro: data.logradouro || '',
     bairro: data.bairro || '',
     localidade: data.localidade || '',
-    uf: data.uf || ''
+    uf: data.uf || '',
+    numero: data.novoEndereco || ''
   };
 
   let enderecos = JSON.parse(localStorage.getItem('enderecos')) || [];
@@ -58,7 +61,7 @@ function salvarNoLocalStorage(data) {
 }
 function listarEnderecos() {
   const listaContainer = document.getElementById('lista-enderecos');
-  listaContainer.innerHTML = ''; // Limpa a lista antiga
+  listaContainer.innerHTML = '';
   listaContainer.classList.remove('hidden');
 
   let enderecos = JSON.parse(localStorage.getItem('enderecos')) || [];
@@ -78,6 +81,7 @@ function listarEnderecos() {
       Bairro: ${endereco.bairro}<br>
       Cidade: ${endereco.localidade}<br>
       Estado: ${endereco.uf}<br>
+      Numero: ${endereco.numero}<br>
     `;
     listaContainer.appendChild(div);
   });
@@ -98,3 +102,38 @@ function carregarEnderecoDoLocalStorage() {
 
 document.addEventListener('DOMContentLoaded', carregarEnderecoDoLocalStorage);
 document.getElementById('btn-listar').addEventListener('click', listarEnderecos);
+
+
+
+function buscarUsuario(nome) {
+  erro.classList.add('hidden');
+
+  fetch(nome == (document.getElementById('nome').value = enderecoSalvo.nome))
+
+    .then(res => res.json())
+    .then(data => {
+      if (data.erro) {
+        mostrarErro('usuario não encontrado.');
+        return;
+      }
+      enderecos.forEach((endereco, index) => {
+        const div = document.createElement('div');
+        div.className = 'endereco-card';
+        div.innerHTML = `
+            <strong>${index + 1}) ${endereco.nome}</strong><br>
+            CEP: ${endereco.cep}<br>
+            Logradouro: ${endereco.logradouro}<br>
+            Bairro: ${endereco.bairro}<br>
+            Cidade: ${endereco.localidade}<br>
+            Estado: ${endereco.uf}<br>
+            Numero: ${endereco.numero}<br>
+          `;
+      });
+
+    })
+    .catch(() => {
+      mostrarErro('Erro ao consultar o úsuario');
+    });
+}
+
+document.getElementById('btn-buscar').addEventListener('click', buscarUsuario);

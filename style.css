@@ -1,0 +1,105 @@
+    body {
+    font-family: Arial, sans-serif;
+    background: #e6f4ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .container {
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ccc;
+    width: 320px;
+    border-top: 8px solid #2e7d32;
+  }
+  
+  .logo {
+    display: block;
+    max-width: 100px;
+    margin: 0 auto 10px;
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2e7d32;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #2e7d32;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 2px solid #000;
+    outline-color: #000;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  #erro {
+    color: #437057;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--verde-escuro);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+  }
+  
+  #lista-enderecos {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #f9f9f9;
+  }
+  
+  #lista-enderecos ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #lista-enderecos li {
+    margin-bottom: 5px;
+  }
+  
+  #lista-enderecos {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #lista-enderecos .endereco-card {
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+  }
